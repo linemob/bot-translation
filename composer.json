@@ -24,8 +24,8 @@
         ]
     },
     "require": {
-        "php": ">=7.1",
-        "linemob/core": "^0.1",
+        "php": ">=5.6",
+        "linemob/core": "dev-master",
         "league/tactician-bundle": "~0.4",
         "google/cloud": "^0.34.1"
     },
