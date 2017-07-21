@@ -11,6 +11,7 @@ use React\Http\Response;
 use React\Socket\Server as SocketServer;
 use React\Http\Server as HttpServer;
 
+$port = '8888';
 $config = [
             'google_project_id' => 'XXXX',
             'google_api_key' => 'XXXX',
@@ -21,15 +22,15 @@ $config = [
             'isDebug' => true
         ];
 
-        $app = function (Request $request, Response $response) use ($output, $config) {
-            $request->on('data', function ($data) use ($output, $request, $config) {
+        $app = function (Request $request, Response $response) use ($config) {
+            $request->on('data', function ($data) use ($request, $config) {
                 $receiver = Setup::demo($config);
                 $signature = $request->getHeaderLine('X-Line-Signature');
 
-                dump($data);
+                var_dump($data);
 
                 if ($receiver->validate($data, $signature)) {
-                    dump($receiver->handle($data));
+                    var_dump($receiver->handle($data));
                 } else {
                     throw new \RuntimeException("Invalid signature: " . $signature);
                 }
