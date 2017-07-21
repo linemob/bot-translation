@@ -1,6 +1,16 @@
 # bot-translation
 
 ```php
+require __DIR__.'/vendor/autoload.php';
+
+use LineMob\Bot\Translation\Setup;
+use LineMob\Core\Command\FallbackCommand;
+use React\EventLoop\Factory;
+use React\Http\Request;
+use React\Http\Response;
+use React\Socket\Server as SocketServer;
+use React\Http\Server as HttpServer;
+
 $config = [
             'google_project_id' => 'XXXX',
             'google_api_key' => 'XXXX',
