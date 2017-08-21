@@ -6,6 +6,7 @@ use Google\Cloud\Translate\TranslateClient;
 use League\Tactician\Middleware;
 use LineMob\Bot\Translation\Command\AbstractTranslateCommand;
 use LineMob\Bot\Translation\Command\TranslationCommand;
+use LineMob\Core\Template\TextTemplate;
 
 class TranslateMiddleware implements Middleware
 {
@@ -52,8 +53,10 @@ class TranslateMiddleware implements Middleware
 
         $this->fliffTargetLanguage($command);
 
+        $command->message = new TextTemplate();
+
         if (2 > mb_strlen($command->input->text)) {
-            $command->message = 'กรุณาระบุคำมากกว่า 2 คำ';
+            $command->message->text = 'กรุณาระบุคำมากกว่า 2 คำ';
         } else {
             $translation = $this->client->translate(
                 $command->input->text,
@@ -63,7 +66,7 @@ class TranslateMiddleware implements Middleware
                 ]
             );
 
-            $command->message = $translation['text'];
+            $command->message->text = $translation['text'];
         }
 
         return $next($command);

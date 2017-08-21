@@ -5,7 +5,7 @@ namespace LineMob\Bot\Translation\Middleware;
 use Google\Cloud\Translate\TranslateClient;
 use League\Tactician\Middleware;
 use LineMob\Bot\Translation\Command\AbstractTranslateCommand;
-use LineMob\Core\Constants;
+use LineMob\Core\Template\TextTemplate;
 
 class ChangeTargetLanguageMiddleware implements Middleware
 {
@@ -52,8 +52,7 @@ class ChangeTargetLanguageMiddleware implements Middleware
 
         $locales = $this->getLocales();
         $locale = null;
-
-        $command->type = Constants::TYPE_TEXT;
+        $command->message = new TextTemplate();
 
         if (preg_match(sprintf('/%s (.*)/', $command->cmd), $command->input->text, $match)) {
             $locale = $match[1];
@@ -62,21 +61,21 @@ class ChangeTargetLanguageMiddleware implements Middleware
         $command->logs = sprintf('Selected locale: `%s`', $locale);
 
         if (!array_key_exists($locale, $locales)) {
-            $message = ['กรุณาระบุรหัสภาษาตามรายการนี้'];
+            $messages = ['กรุณาระบุรหัสภาษาตามรายการนี้'];
 
             // should provide a link to listing supported languages!
             foreach ($locales as $key => $value) {
-                $message[] = sprintf("%s\t: %s", $key, $value);
+                $messages[] = sprintf("%s\t: %s", $key, $value);
             }
 
-            $command->message = join("\r\n", $message);
-            $command->actived = true;
+            $command->message->text = join("\r\n", $messages);
+            $command->active = true;
 
             return $next($command);
         }
 
         $command->targetLanguageCode = $locale;
-        $command->message = sprintf('Change default language to "%s - %s" was successfully.', $locale, $locales[$locale]);
+        $command->message->text = sprintf('Change default language to "%s - %s" was successfully.', $locale, $locales[$locale]);
 
         return $next($command);
     }
