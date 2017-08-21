@@ -12,6 +12,7 @@ class ChangeTargetLanguageCommand extends AbstractTranslateCommand
             return true;
         }
 
+        // inline command: > th
         return preg_match(sprintf('/%s [a-z]{2}/i', $this->cmd), $cmd);
     }
 }
