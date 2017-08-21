@@ -586,12 +586,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/linemob/core.git",
-                "reference": "44ecfb5a0e2f81ab7615e2e4ef9cc613f64ab5c8"
+                "reference": "5eaea147073736d56675c0043598b139c6398a50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linemob/core/zipball/44ecfb5a0e2f81ab7615e2e4ef9cc613f64ab5c8",
-                "reference": "44ecfb5a0e2f81ab7615e2e4ef9cc613f64ab5c8",
+                "url": "https://api.github.com/repos/linemob/core/zipball/5eaea147073736d56675c0043598b139c6398a50",
+                "reference": "5eaea147073736d56675c0043598b139c6398a50",
                 "shasum": ""
             },
             "require": {
@@ -631,7 +631,7 @@
                 "bot",
                 "line"
             ],
-            "time": "2017-08-21 20:04:03"
+            "time": "2017-08-21 20:25:07"
         },
         {
             "name": "monolog/monolog",
