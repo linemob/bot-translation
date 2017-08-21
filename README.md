@@ -19,8 +19,8 @@ $config = [
     'google_api_key' => 'AIzaSyDWe9Vymr-VfqNpV_I0TUIbDjpJuCJQPNw',
     'google_default_locale' => 'th',
     'google_fallback_locale' => 'en',
-    'line_channel_token' => 'jUvE46JVqWrP8zLOxfmVx+AznUp18g3ExX0tBgdAmNfmFCKHrw4EXGBUCPVf8+Fj60fN4FgRjdmY8AFEHCYrhTDOXGiq9L/nelkBp5l68pArnDMAQdOAYswbbcnE6MPUSLM1uRVSVJSmR8VoS5D2fwdB04t89/1O/w1cDnyilFU=',
-    'line_channel_secret' => '3aec579fe57eaa96398cbed86068e11a',
+    'line_channel_token' => 'your_own_bot_token',
+    'line_channel_secret' => 'your_own_bot_secret',
     'isDebug' => true,
 ];
 
