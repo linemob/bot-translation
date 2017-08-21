@@ -56,7 +56,7 @@ class TranslateMiddleware implements Middleware
         $command->message = new TextTemplate();
 
         if (2 > mb_strlen($command->input->text)) {
-            $command->message->text = 'กรุณาระบุคำมากกว่า 2 คำ';
+            $command->message->text = 'Enter more than 2 words.';
         } else {
             $translation = $this->client->translate(
                 $command->input->text,

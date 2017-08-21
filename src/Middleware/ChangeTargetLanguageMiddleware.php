@@ -61,7 +61,7 @@ class ChangeTargetLanguageMiddleware implements Middleware
         $command->logs = sprintf('Selected locale: `%s`', $locale);
 
         if (!array_key_exists($locale, $locales)) {
-            $messages = ['กรุณาระบุรหัสภาษาตามรายการนี้'];
+            $messages = ['Select language code in below list.'];
 
             // should provide a link to listing supported languages!
             foreach ($locales as $key => $value) {
