@@ -23,7 +23,7 @@ class TranslateMiddleware implements Middleware
      * @param AbstractTranslateCommand $command
      * @throws \Exception
      */
-    private function fliffTargetLanguage(AbstractTranslateCommand $command)
+    private function flipTargetLanguage(AbstractTranslateCommand $command)
     {
         $targetLanguageCode = $command->targetLanguageCode;
         $sourceLanguageCode = $this->client->detectLanguage($command->input->text)['languageCode'];
@@ -51,7 +51,7 @@ class TranslateMiddleware implements Middleware
             return $next($command);
         }
 
-        $this->fliffTargetLanguage($command);
+        $this->flipTargetLanguage($command);
 
         $command->message = new TextTemplate();
 

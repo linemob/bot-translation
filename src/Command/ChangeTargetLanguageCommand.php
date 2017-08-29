@@ -4,7 +4,7 @@ namespace LineMob\Bot\Translation\Command;
 
 class ChangeTargetLanguageCommand extends AbstractTranslateCommand
 {
-    protected $cmd = '>';
+    public $cmd = '>';
 
     public function supported($cmd)
     {

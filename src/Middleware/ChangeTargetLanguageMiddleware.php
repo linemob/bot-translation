@@ -50,8 +50,8 @@ class ChangeTargetLanguageMiddleware implements Middleware
             return $next($command);
         }
 
-        $locales = $this->getLocales();
         $locale = null;
+        $locales = $this->getLocales();
         $command->message = new TextTemplate();
 
         if (preg_match(sprintf('/%s (.*)/', $command->cmd), $command->input->text, $match)) {
